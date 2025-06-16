@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.16.2
+    jupytext_version: 1.17.1
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -152,7 +152,7 @@ We’ll also use data from the same process for cross-validation.
 ```{code-cell} ipython3
 :hide-output: false
 
-x_validate, y_validate = generate_data()
+x_validate, y_validate = generate_data(seed=4321)
 ```
 
 ## Models

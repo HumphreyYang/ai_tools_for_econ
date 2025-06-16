@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.16.7
+    jupytext_version: 1.17.1
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -184,11 +184,12 @@ Here’s a function to run all the routines above.
 def keras_run_all():
     model = build_keras_model()
     x, y = generate_data()
-    x_validate, y_validate = generate_data()
+    x_validate, y_validate = generate_data(seed=4321)
     model, training_history = train_keras_model(
             model, x, y, x_validate, y_validate
     )
     plot_keras_output(model, x, y, x_validate, y_validate)
+    return model
 ```
 
 Let’s put it to work:
@@ -196,7 +197,7 @@ Let’s put it to work:
 ```{code-cell} ipython3
 :hide-output: false
 
-keras_run_all()
+keras_run_all().summary()
 ```
 
 We’ve seen this figure before and we note the relatively low final MSE.
@@ -421,7 +422,7 @@ Let’s run our code and see how it goes.
 
 θ = initialize_params()
 x, y = generate_data()
-x_validate, y_validate = generate_data()
+x_validate, y_validate = generate_data(seed=4321)
 ```
 
 ```{code-cell} ipython3
@@ -604,8 +605,4 @@ ax.plot(x.flatten(), f(θ, x).flatten(),
 ax.set_xlabel('x')
 ax.set_ylabel('y')
 plt.show()
-```
-
-```{code-cell} ipython3
-
 ```
